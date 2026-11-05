@@ -1,0 +1,85 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Role {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique @db.VarChar(30)
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  users User[]
+
+  @@map("roles")
+}
+
+model User {
+  id           Int       @id @default(autoincrement())
+  email        String    @unique @db.VarChar(191)
+  passwordHash String    @map("password_hash") @db.VarChar(255)
+  roleId       Int       @map("role_id")
+  isActive     Boolean   @default(true) @map("is_active")
+  lastLoginAt  DateTime? @map("last_login_at")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  role     Role      @relation(fields: [roleId], references: [id])
+  employee Employee?
+
+  @@map("users")
+}
+
+model Employee {
+  id             Int       @id @default(autoincrement())
+  userId         Int       @unique @map("user_id")
+  employeeNumber String    @unique @map("employee_number") @db.VarChar(50)
+  fullName       String    @map("full_name") @db.VarChar(150)
+  department     String    @db.VarChar(100)
+  position       String?   @db.VarChar(100)
+  phone          String?   @db.VarChar(30)
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt @map("updated_at")
+
+  user        User         @relation(fields: [userId], references: [id], onDelete: Restrict)
+  attendances Attendance[]
+
+  @@map("employees")
+}
+
+model Attendance {
+  id              Int      @id @default(autoincrement())
+  employeeId      Int      @map("employee_id")
+  attendanceDate  DateTime @map("attendance_date") @db.Date
+  submittedAt     DateTime @map("submitted_at")
+  workDescription String   @map("work_description") @db.Text
+  notes           String?  @db.VarChar(500)
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  employee Employee         @relation(fields: [employeeId], references: [id], onDelete: Restrict)
+  photo    AttendancePhoto?
+
+  @@unique([employeeId, attendanceDate])
+  @@index([attendanceDate])
+  @@index([employeeId, submittedAt])
+  @@map("attendances")
+}
+
+model AttendancePhoto {
+  id           Int      @id @default(autoincrement())
+  attendanceId Int      @unique @map("attendance_id")
+  fileName     String   @map("file_name") @db.VarChar(255)
+  originalName String   @map("original_name") @db.VarChar(255)
+  mimeType     String   @map("mime_type") @db.VarChar(100)
+  fileSize     Int      @map("file_size")
+  storagePath  String   @map("storage_path") @db.VarChar(500)
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  attendance Attendance @relation(fields: [attendanceId], references: [id], onDelete: Cascade)
+
+  @@map("attendance_photos")
+}
