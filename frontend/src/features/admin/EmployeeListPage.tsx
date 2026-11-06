@@ -115,7 +115,7 @@ export const EmployeeListPage: React.FC = () => {
 
         <button
           onClick={handleCreate}
-          className="inline-flex items-center space-x-2 px-4 py-2.5 bg-blue-700 hover:bg-blue-800 text-white text-sm font-medium rounded-lg shadow-xs transition-colors cursor-pointer self-start sm:self-auto"
+          className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white text-sm font-medium rounded-lg shadow-xs transition-colors cursor-pointer self-start sm:self-auto"
         >
           <Plus className="w-4 h-4" />
           <span>Tambah Karyawan</span>
@@ -137,7 +137,7 @@ export const EmployeeListPage: React.FC = () => {
       )}
 
       {/* Filter and Search Bar */}
-      <div className="bg-white p-4 border border-slate-200 rounded-xl shadow-xs flex flex-col md:flex-row gap-3">
+      <div className="bg-white p-3.5 border border-slate-200 rounded-xl shadow-xs flex flex-col md:flex-row gap-3">
         <div className="relative flex-1">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
             <Search className="w-4 h-4" />
@@ -150,7 +150,7 @@ export const EmployeeListPage: React.FC = () => {
               setPage(1);
             }}
             placeholder="Cari berdasarkan nama, NIP, atau email..."
-            className="w-full pl-9 pr-3.5 py-2 bg-slate-50 hover:bg-white focus:bg-white border border-slate-300 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-colors"
+            className="w-full pl-9 pr-3.5 py-2 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-700 focus:border-blue-700 transition-colors"
           />
         </div>
 
@@ -162,7 +162,7 @@ export const EmployeeListPage: React.FC = () => {
               setSelectedDept(e.target.value);
               setPage(1);
             }}
-            className="w-full py-2 px-3 bg-slate-50 hover:bg-white border border-slate-300 rounded-lg text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600"
+            className="w-full py-2 px-3 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-blue-700 focus:border-blue-700 transition-colors"
           >
             {DEPARTMENTS.map((dept) => (
               <option key={dept} value={dept}>
@@ -237,9 +237,9 @@ export const EmployeeListPage: React.FC = () => {
 
                       <td className="py-3.5 px-4 whitespace-nowrap">
                         <span
-                          className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium tracking-wide ${isActive
-                            ? 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-600/20'
-                            : 'bg-rose-50 text-rose-700 ring-1 ring-rose-600/20'
+                          className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border ${isActive
+                            ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+                            : 'bg-rose-50 text-rose-800 border-rose-200'
                             }`}
                         >
                           {isActive ? 'Aktif' : 'Nonaktif'}

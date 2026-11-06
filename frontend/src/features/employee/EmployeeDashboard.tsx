@@ -45,7 +45,7 @@ export const EmployeeDashboard: React.FC = () => {
         <div className="bg-white border border-slate-200 rounded-xl p-6 sm:p-8 shadow-xs">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-blue-50 text-blue-700 ring-1 ring-blue-700/20 mb-2">
+              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200 mb-2">
                 HR Administration Portal
               </span>
               <h1 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
@@ -118,7 +118,7 @@ export const EmployeeDashboard: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <div className="flex items-center space-x-2 mb-2">
-              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-emerald-50 text-emerald-700 ring-1 ring-emerald-700/20">
+              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200">
                 Employee Portal
               </span>
               <span className="text-xs font-mono text-slate-400">
@@ -151,13 +151,13 @@ export const EmployeeDashboard: React.FC = () => {
               {loadingStatus ? (
                 <span className="text-xs text-slate-400">Memeriksa status...</span>
               ) : isSubmittedToday ? (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-700 ring-1 ring-emerald-600/20">
-                  <CheckCircle2 className="w-3.5 h-3.5 mr-1" />
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">
+                  <CheckCircle2 className="w-3.5 h-3.5 mr-1 text-emerald-600" />
                   Sudah Absen Hari Ini
                 </span>
               ) : (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-700 ring-1 ring-amber-600/20">
-                  <Clock className="w-3.5 h-3.5 mr-1" />
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200">
+                  <Clock className="w-3.5 h-3.5 mr-1 text-amber-600" />
                   Belum Mengisi Absensi
                 </span>
               )}

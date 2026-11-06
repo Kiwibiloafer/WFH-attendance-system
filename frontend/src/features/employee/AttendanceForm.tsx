@@ -153,7 +153,7 @@ export const AttendanceForm: React.FC = () => {
               <CheckCircle2 className="w-6 h-6" />
             </div>
             <div>
-              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-emerald-50 text-emerald-700 ring-1 ring-emerald-700/20 mb-1">
+              <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200 mb-1">
                 Absensi Hari Ini Selesai
               </span>
               <h2 className="text-xl font-bold text-slate-900 tracking-tight">
@@ -313,7 +313,7 @@ export const AttendanceForm: React.FC = () => {
               value={workDescription}
               onChange={(e) => setWorkDescription(e.target.value)}
               placeholder="- Mengembangkan modul monitoring absensi&#10;- Melakukan code review dan unit testing&#10;- Mengintegrasikan storage MinIO S3"
-              className="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 font-sans leading-relaxed transition-colors"
+              className="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-700 focus:border-blue-700 font-sans leading-relaxed transition-colors"
             />
             <p className="mt-1.5 text-xs text-slate-500 flex items-center space-x-1">
               <Info className="w-3.5 h-3.5 text-slate-400 shrink-0" />
@@ -399,7 +399,7 @@ export const AttendanceForm: React.FC = () => {
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Contoh: Pekerjaan selesai tepat waktu, standby komunikasi via Slack."
-              className="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-colors"
+              className="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-700 focus:border-blue-700 transition-colors"
             />
           </div>
 

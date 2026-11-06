@@ -22,10 +22,17 @@ export const AppLayout: React.FC = () => {
   const isHr = user?.role === 'HR_ADMIN';
 
   const navItemClass = ({ isActive }: { isActive: boolean }) =>
-    `flex items-center space-x-2 px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+    `inline-flex items-center space-x-2 px-3.5 h-16 text-sm font-medium border-b-2 transition-all ${
       isActive
-        ? 'bg-blue-50 text-blue-700'
-        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+        ? 'border-blue-700 text-blue-900 font-semibold'
+        : 'border-transparent text-slate-500 hover:text-slate-900 hover:border-slate-300'
+    }`;
+
+  const mobileNavItemClass = ({ isActive }: { isActive: boolean }) =>
+    `flex items-center space-x-2 px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
+      isActive
+        ? 'bg-slate-100 text-slate-900 font-semibold border border-slate-200'
+        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
     }`;
 
   return (
@@ -37,7 +44,7 @@ export const AppLayout: React.FC = () => {
             {/* Logo & Navigation */}
             <div className="flex items-center space-x-8">
               <Link to="/dashboard" className="flex items-center space-x-2.5">
-                <div className="w-9 h-9 rounded-lg bg-blue-700 flex items-center justify-center text-white font-bold text-sm shadow-xs">
+                <div className="w-9 h-9 rounded-lg bg-blue-700 border border-blue-800/40 flex items-center justify-center text-white font-bold text-sm shadow-xs">
                   DX
                 </div>
                 <div>
@@ -50,7 +57,7 @@ export const AppLayout: React.FC = () => {
                 </div>
               </Link>
 
-              <nav className="hidden md:flex items-center space-x-1">
+              <nav className="hidden md:flex items-stretch space-x-2 h-16">
                 <NavLink to="/dashboard" className={navItemClass}>
                   <LayoutDashboard className="w-4 h-4" />
                   <span>Dashboard</span>
@@ -94,10 +101,10 @@ export const AppLayout: React.FC = () => {
                       <span className="text-slate-400">{user.employee.department} &bull;</span>
                     )}
                     <span
-                      className={`inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-semibold tracking-wide uppercase ${
+                      className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-semibold tracking-wider uppercase border ${
                         isHr
-                          ? 'bg-blue-50 text-blue-700 ring-1 ring-blue-700/20'
-                          : 'bg-emerald-50 text-emerald-700 ring-1 ring-emerald-700/20'
+                          ? 'bg-slate-100 text-slate-700 border-slate-200'
+                          : 'bg-emerald-50 text-emerald-800 border-emerald-200'
                       }`}
                     >
                       {isHr ? 'HR Admin' : 'Employee'}
@@ -115,7 +122,7 @@ export const AppLayout: React.FC = () => {
               <button
                 onClick={handleLogout}
                 title="Keluar dari sistem"
-                className="flex items-center space-x-1 px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600 hover:bg-rose-50 rounded-md transition-colors"
+                className="flex items-center space-x-1 px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-rose-600 hover:bg-rose-50 rounded-md transition-colors cursor-pointer"
               >
                 <LogOut className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">Logout</span>
@@ -126,24 +133,24 @@ export const AppLayout: React.FC = () => {
 
         {/* Mobile Navigation bar */}
         <div className="md:hidden border-t border-slate-200 bg-white px-4 py-2 flex space-x-2 overflow-x-auto">
-          <NavLink to="/dashboard" className={navItemClass}>
+          <NavLink to="/dashboard" className={mobileNavItemClass}>
             <span>Dashboard</span>
           </NavLink>
           {isHr ? (
             <>
-              <NavLink to="/admin/employees" className={navItemClass}>
+              <NavLink to="/admin/employees" className={mobileNavItemClass}>
                 <span>Karyawan</span>
               </NavLink>
-              <NavLink to="/admin/attendances" className={navItemClass}>
+              <NavLink to="/admin/attendances" className={mobileNavItemClass}>
                 <span>Monitoring</span>
               </NavLink>
             </>
           ) : (
             <>
-              <NavLink to="/attendance/submit" className={navItemClass}>
+              <NavLink to="/attendance/submit" className={mobileNavItemClass}>
                 <span>Absen</span>
               </NavLink>
-              <NavLink to="/attendance/history" className={navItemClass}>
+              <NavLink to="/attendance/history" className={mobileNavItemClass}>
                 <span>Riwayat</span>
               </NavLink>
             </>

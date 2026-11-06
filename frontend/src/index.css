@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@theme {
+  /* Dexa Corporate Navy Palette (Hue ~210°, authentic enterprise navy, zero purple) */
+  --color-blue-50: #f0f5fa;
+  --color-blue-100: #e0ecf5;
+  --color-blue-200: #c1dceb;
+  --color-blue-300: #92bfdd;
+  --color-blue-400: #5c9ec6;
+  --color-blue-500: #2a7cae;
+  --color-blue-600: #155d8d;
+  --color-blue-700: #0b3c61;
+  --color-blue-800: #082e4a;
+  --color-blue-900: #052237;
+  --color-blue-950: #031422;
+}
+
 @layer base {
   *, ::after, ::before, ::backdrop, ::file-selector-button {
     box-sizing: border-box;

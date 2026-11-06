@@ -117,7 +117,7 @@ export const AttendanceMonitoringPage: React.FC = () => {
       )}
 
       {/* Filter Toolbar */}
-      <div className="bg-white p-4 border border-slate-200 rounded-xl shadow-xs space-y-3">
+      <div className="bg-white p-3.5 border border-slate-200 rounded-xl shadow-xs space-y-3">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
           {/* Search */}
           <div className="relative md:col-span-2">
@@ -132,7 +132,7 @@ export const AttendanceMonitoringPage: React.FC = () => {
                 setPage(1);
               }}
               placeholder="Cari berdasarkan nama atau NIP karyawan..."
-              className="w-full pl-9 pr-3.5 py-2 bg-slate-50 hover:bg-white focus:bg-white border border-slate-300 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-colors"
+              className="w-full pl-9 pr-3.5 py-2 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-1 focus:ring-blue-700 focus:border-blue-700 transition-colors"
             />
           </div>
 
@@ -145,7 +145,7 @@ export const AttendanceMonitoringPage: React.FC = () => {
                 setSelectedDept(e.target.value);
                 setPage(1);
               }}
-              className="w-full py-2 px-3 bg-slate-50 hover:bg-white border border-slate-300 rounded-lg text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600"
+              className="w-full py-2 px-3 bg-white border border-slate-300 rounded-lg text-sm text-slate-900 focus:outline-none focus:ring-1 focus:ring-blue-700 focus:border-blue-700 transition-colors"
             >
               {DEPARTMENTS.map((dept) => (
                 <option key={dept} value={dept}>
@@ -182,7 +182,7 @@ export const AttendanceMonitoringPage: React.FC = () => {
                 setFromDate(e.target.value);
                 setPage(1);
               }}
-              className="px-2.5 py-1.5 border border-slate-300 rounded-md bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600"
+              className="px-2.5 py-1.5 border border-slate-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-blue-700 focus:border-blue-700 text-xs text-slate-800"
             />
           </div>
 
@@ -195,7 +195,7 @@ export const AttendanceMonitoringPage: React.FC = () => {
                 setToDate(e.target.value);
                 setPage(1);
               }}
-              className="px-2.5 py-1.5 border border-slate-300 rounded-md bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600"
+              className="px-2.5 py-1.5 border border-slate-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-blue-700 focus:border-blue-700 text-xs text-slate-800"
             />
           </div>
         </div>
